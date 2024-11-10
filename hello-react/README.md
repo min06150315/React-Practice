@@ -1,70 +1,157 @@
-# Getting Started with Create React App
+# React 프로젝트 개요
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+이 프로젝트는 `create-react-app`으로 생성된 React 애플리케이션입니다. 기본적으로 생성되는 파일과 폴더는 다음과 같은 역할을 합니다.
 
-## Available Scripts
 
-In the project directory, you can run:
+---
 
-### `npm start`
+### 1. **`App.js`**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+React 컴포넌트의 시작점으로, 보통 화면에 표시될 주요 콘텐츠와 컴포넌트가 정의됩니다.  
+여기서 페이지 구조를 정의하거나 다른 컴포넌트를 불러와 조합하여 최종 화면을 구성할 수 있습니다.  
+`App.js`는 최상위 컴포넌트로, `index.js`에서 `ReactDOM.render()`를 통해 DOM에 연결됩니다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+### 2. **`index.html`**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`public` 폴더 안에 위치한 HTML 파일로, React 애플리케이션의 진입점입니다.  
+`<div id="root"></div>` 태그가 있는데, 이 부분이 실제로 React가 렌더링될 위치입니다.  
+`ReactDOM.render()`가 이 `<div>`에 애플리케이션을 주입하여 화면에 표시합니다.  
+SPA(Single Page Application) 구조를 유지하면서도 JavaScript를 통해 동적으로 페이지를 구성할 수 있게 합니다.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3. **`index.js`**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`src` 폴더 안에 있으며, 애플리케이션의 진입점 역할을 합니다.  
+`ReactDOM.render()`를 통해 `App` 컴포넌트를 `<div id="root"></div>`에 렌더링합니다.  
+여기서 전체 애플리케이션을 감싸는 컨텍스트 프로바이더나 라우터 등을 설정할 수 있습니다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+### 4. **`App.test.js`**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+기본으로 제공되는 테스트 파일로, `App` 컴포넌트가 정상적으로 렌더링되는지를 확인하는 기본 테스트가 포함되어 있습니다.  
+Jest와 Testing Library와 같은 도구를 사용하여 컴포넌트의 동작을 테스트합니다.  
+이를 통해 컴포넌트의 기능과 UI가 예상대로 작동하는지 검증할 수 있습니다.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 5. **`package.json`**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+프로젝트 설정과 관련된 정보를 담고 있는 파일로, 프로젝트의 메타데이터, 스크립트, 종속성 목록 등을 포함합니다.  
+예를 들어, 프로젝트 이름, 버전, 스크립트(예: `npm start`, `npm test`), 의존성 패키지 목록이 포함됩니다.  
+`dependencies`와 `devDependencies` 항목은 프로젝트 실행 및 개발에 필요한 패키지들을 관리합니다.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 6. **`public/favicon.ico`**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+브라우저 탭에 표시되는 아이콘 파일입니다. 기본적으로 제공되는 아이콘이지만, 필요에 따라 다른 아이콘으로 교체할 수 있습니다.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 7. **`public/manifest.json`**
 
-### Analyzing the Bundle Size
+Progressive Web App(PWA)을 위한 설정 파일로, 앱의 이름, 아이콘, 색상 등을 정의합니다.  
+웹 애플리케이션을 홈 화면에 추가하는 데 필요한 메타데이터를 포함합니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+### 8. **`public/robots.txt`**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+검색 엔진이 이 앱을 어떻게 크롤링할지 정의하는 파일입니다.  
+웹 크롤러의 동작을 제어할 수 있습니다.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 9. **`src/App.css`**
 
-### Deployment
+`App.js` 컴포넌트에 적용되는 CSS 파일로, 해당 컴포넌트의 스타일을 정의합니다.  
+애플리케이션의 UI를 꾸미는 데 사용됩니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+### 10. **`src/index.css`**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+전역 스타일 파일로, 애플리케이션 전체에 적용될 CSS를 정의합니다.  
+공통적으로 적용되는 스타일을 설정할 때 사용합니다.
+
+---
+
+### 11. **`src/logo.svg`**
+
+React 로고 파일로, 기본 `App.js`에서 사용됩니다.  
+필요에 따라 다른 로고로 교체할 수 있습니다.
+
+---
+
+### 12. **`src/reportWebVitals.js`**
+
+웹 애플리케이션의 성능을 측정하는 파일입니다.  
+`reportWebVitals()` 함수는 성능 데이터를 수집하여 분석할 수 있도록 합니다.  
+성능을 모니터링하고 개선할 부분을 찾는 데 유용합니다.
+
+---
+
+### 13. **`src/setupTests.js`**
+
+테스트 설정 파일로, Jest와 Testing Library를 초기화하고 필요한 설정을 추가하는 데 사용됩니다.  
+테스트 환경을 설정하고 컴포넌트를 테스트하기 전에 실행됩니다.
+
+---
+
+### 14. **`.gitignore`**
+
+Git에 포함되지 않도록 할 파일 및 폴더를 지정하는 파일입니다.  
+예를 들어, `node_modules`와 같은 임시 파일을 Git에서 제외하는 데 사용됩니다.
+
+---
+
+### 15. **`package-lock.json`**
+
+설치된 패키지의 정확한 버전을 기록하여, 다른 환경에서도 동일한 버전을 설치할 수 있게 보장합니다.  
+`npm install`을 사용할 때 항상 동일한 버전의 패키지가 설치되도록 합니다.
+
+---
+
+### 16. **`README.md`**
+
+프로젝트의 개요, 사용 방법, 주요 파일 설명 등을 포함한 문서입니다.  
+프로젝트를 처음 접하는 개발자가 이해할 수 있도록 정보를 제공합니다.
+
+---
+
+## 프로젝트 사용법
+
+### 1. 설치
+프로젝트를 처음 복제한 후 필요한 패키지를 설치하려면 다음 명령어를 사용하세요.
+
+```bash
+npm install
+```
+
+---
+
+### 2. 애플리케이션 시작
+개발 서버를 실행하려면 다음 명령어를 사용하세요.
+
+```bash
+npm start
+```
+로컬 서버에서 애플리케이션이 실행됩니다. 기본 포트는 `http://localhost:3000`입니다.
+
+---
+
+### 3. 테스트 실행
+프로젝트에 포함된 테스트를 실행하려면 다음 명령어를 사용하세요.
+
+```bash
+npm test
+```
+Jest와 Testing Library가 실행되며, 컴포넌트의 기본 동작이 정상적인지 확인할 수 있습니다.
+
+---
+
+이 프로젝트는 create-react-app의 기본 구조를 따르며, 추가적인 컴포넌트와 스타일을 src 폴더에 추가하여 확장할 수 있습니다.
